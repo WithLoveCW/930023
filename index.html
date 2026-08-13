@@ -48,15 +48,17 @@
       overflow: hidden;
     }
 
-    .sc__container img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: block;
-      /* ensure back image is always visible */
-    }
+  .sc__container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
 	 #personalMessage {
   position: absolute;
+		 z-index: 1;
+visibility: hidden;
 
   /* INCREASE = move DOWN / DECREASE = move UP */
   top: 53%;
@@ -79,13 +81,14 @@
   z-index: 1;
 }
 
-    .sc__container canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+   .sc__container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
   </style>
 
   <!-- Confetti library -->
@@ -189,6 +192,7 @@ const supabaseClient = supabase.createClient(
 
       function startScratch(event) {
         event.preventDefault();
+		  document.getElementById("personalMessage").style.visibility = "visible";
 		  const winSound = document.getElementById("winSound");
 
 if (winSound && winSound.paused) {
