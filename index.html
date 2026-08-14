@@ -110,6 +110,9 @@ transform: translateX(-50%);
 <audio id="winSound" preload="auto">
   <source src="./sounds/win.mp3" type="audio/mpeg">
 </audio>
+	<audio id="bgMusic" preload="auto" loop>
+  <source src="./sounds/This Christmas_Short.mp3" type="audio/mpeg">
+</audio>
   <script>
 	  const SUPABASE_URL = "https://bfzhvulpymbqzwxorzih.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_aLj5jota1g3icfvF7MROIQ_b4-yKlo3";
@@ -118,6 +121,9 @@ const supabaseClient = supabase.createClient(
   SUPABASE_URL,
   SUPABASE_ANON_KEY
 );
+	  // 🎵 BACKGROUND MUSIC VOLUME
+// 0.1 = 10%, 0.25 = 25%, 0.5 = 50%, 1 = 100%
+const BG_MUSIC_VOLUME = 0.5;
 	  async function loadDetails() {
   const params = new URLSearchParams(window.location.search);
   const revealId = params.get("id");
