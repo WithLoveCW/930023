@@ -200,6 +200,14 @@ const BG_MUSIC_VOLUME = 0.5;
 
       function startScratch(event) {
         event.preventDefault();
+		  const bgMusic = document.getElementById("bgMusic");
+
+if (bgMusic && bgMusic.paused) {
+  bgMusic.volume = BG_MUSIC_VOLUME;
+  bgMusic.play().catch(error => {
+    console.log("Background music could not play:", error);
+  });
+}
 		  document.getElementById("personalMessage").style.visibility = "visible";
 		  const winSound = document.getElementById("winSound");
 
